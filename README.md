@@ -14,3 +14,4 @@ I store all required information during learn programming skills in two style of
 5. [Hibernate](hibernate.md)
 6. [SQL](SQL.md)
 7. [Java Memory](JavaMemory.md)
+7. [Pytania rekrutacyjne](RecritingQuestions.md)
