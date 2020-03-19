@@ -1,4 +1,4 @@
-1.	Czym jest Spring
+1.	Czym jest **Spring**
 	Spring jest lekkim frameworkiem służącym głównie do ułatwienia tworzenia aplikacji Java EE,
 	ale jego składowe mogą być używane przy tworzeniu każdej aplikacji Java. IoC i DI są bardzo
 	przydatne przy tworzeniu każdego programu.
@@ -25,9 +25,18 @@
 	Dependency Injection jest aspektem IoC i jest to koncept w programowniu, polegający 
 	na nie tworzeniu obiektów ręcznie, a zamiast tego określaniu jedynie jak mają być stworzone.
 
-5. Czym jest Spring Boot
+5. Czym jest **Spring Boot**
 
-6. Czym jest [REST](assets/additional/REST.md)
+Jest rozszerzeniem **Frameworku Spring** które eliminuje boilerplate configurations aplikacji 
+
+6. Jakie są zalety **Spring Boot**
+
+* Rozważane zależności „startowe” w celu uproszczenia kompilacji i konfiguracji aplikacji
+* Wbudowany serwer, aby uniknąć złożoności wdrażania aplikacji 
+* Metryki, kontrola Helth i konfiguracja zewnętrzna
+* Automatyczna konfiguracja dla funkcji *Spring* - w miarę możliwości
+
+7. Czym jest [REST](assets/additional/REST.md)
 
 * To aktonim od **RE**presentational **S**tate **T**ransfer
 * REST to nie to samo co HTTP
