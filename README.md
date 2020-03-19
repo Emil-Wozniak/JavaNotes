@@ -7,4 +7,4 @@ I store all required information during learn programming skills in two style of
 
 ## Table of Contents
 
-1 [Design Pattern](./Patterns.md)
+1 [Design Pattern](Patterns.md)
