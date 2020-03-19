@@ -5,10 +5,20 @@ Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about St
 
 
 ## Hibernate
-|  Nazwa | Opis |
-| --- | --- |
-<font color="lightBlue"><b>JPA</b></font>|<div><li>To standard typu ORM (Object-RelationalMapping).</li><li>ORM oznacza mapowanie z modelu obiektowego (tu dostarczonego przez Java).</li></div><div><h5><font color="red">@Entity</font><br/><font color="blue">class</font><font color="lightBlue"> Employee </font> { <br/><br/><font color="red"> @Id</font><br/> <font color="blue"> Long </font> id;<br/><font color="blue">String</font> name; <br/><font color="blue">int</font> salary; </div> }</h5>|
-| <font color="lightBlue"><b>Hibernate</b></font> | <li> Zbiór implementacji standardu JPA</li>|
+**JPA** To standard typu ORM (Object-Relational Mapping).
+* ORM oznacza mapowanie z modelu obiektowego (tu dostarczonego przez Java).
+```java
+@Entity
+class Employee { 
+ @Id
+ Long id;
+ String name;
+ int salary;
+ }
+```
+
+ 
+* **Hibernate** Zbiór implementacji standardu JPA
 
 ## Switch to another file
 

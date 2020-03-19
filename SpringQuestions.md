@@ -31,6 +31,7 @@ Jest rozszerzeniem **Frameworku Spring** które eliminuje boilerplate configurat
 
 6. Jakie są zalety **Spring Boot**
 
+![Spring Boot](https://twitter.com/springboot/photo)
 * Rozważane zależności „startowe” w celu uproszczenia kompilacji i konfiguracji aplikacji
 * Wbudowany serwer, aby uniknąć złożoności wdrażania aplikacji 
 * Metryki, kontrola Helth i konfiguracja zewnętrzna
