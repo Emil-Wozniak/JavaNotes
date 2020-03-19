@@ -1,6 +1,6 @@
 # Bridge pattern
 
-## CEL
+## Cel
 
  Pozwala rozdzielić jedną dużą klasę na zestaw blisko związanych ze sobą klas w 2 oddzielnych hierarchiach (abstrakcji i implementacji ), które mogą być rozwijane osobno.
 
