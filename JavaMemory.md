@@ -11,15 +11,17 @@
 * Proste obiekty (`int`, `double`, ... itd) podawane w metodzie zawsze będą *kopią* tego co się podaje np.
 ```java
 class Foo { 
+
     static void foo(int bar){
   		bar = bar * 100;
   	}
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
 
   	int localInt = 5; 	// 	localInt jest równe 5
   	foo(localInt);		// 	localInt cały czas równe 5 bo na stacku tworzona
   				//	jest jej kopia i dopiero ta kopia jest podawana do metody
-}
+    }
 }
 ```
 * Oznacza to że Java jest "pass by value" w przeciwieństiwie do "pass by reference".
