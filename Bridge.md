@@ -25,7 +25,7 @@ Aby rozwiązać ten problem przechodzimy z **dziedziczenia** na **kompozycję ob
 
 ## Pseudocode
 
-![](./images/bridge_pattern.png)
+![](dev/bin/JavaNotes/assets/images/bridge_pattern.png)
 
 ## Możliwość zastosowania
 

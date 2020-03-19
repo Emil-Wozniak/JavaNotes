@@ -24,7 +24,7 @@ Wzorzec **Composite** sugeruje że będziemy pracowali z obiektami typów *Produ
 *Abstrakcja* (zwana również interface’em) jest warstwą wysokiego poziomu kontroli encji. Ten poziom nie ma za zadanie wykonywać żadnej realnej pracy, powinien przekazywać tą pracę do warstwy implementacji (zwanej platformą).
 
 ## :construction: Struktura
-![Composite Structur](./images/CompositeStructure.png)
+![Composite Structur](dev/bin/JavaNotes/assets/images/CompositeStructure.png)
 
 1. Interfejs *Component* opisuje operacje wspólne dla prostych i złożonych elementów drzewa.
 
@@ -36,7 +36,7 @@ Wzorzec **Composite** sugeruje że będziemy pracowali z obiektami typów *Produ
 
 ## :computer: Pseudocode
 
-![N|Solid](./images/Composite.png)
+![N|Solid](dev/bin/JavaNotes/assets/images/Composite.png)
 
 ## :hammer: Możliwość zastosowania
 

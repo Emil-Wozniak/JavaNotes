@@ -157,7 +157,7 @@
 		oszczędzamy miejsce na Heapie i mamy szybszy dostęp do hashy kiedy używamy String.
 
 22.	Różnica między stosem a stertą
-	- 	Sterta "Heap"  to duży obszar pamięci w którym znajdują się stworzone obiekty i referncje
+	- 	Sterta "Heap" to duży obszar pamięci w którym znajdują się stworzone obiekty i referncje
 		z nich wychodzące. Składa się z trzech częsci: Young Generation, Old Generation, Permanent Generation
 		Young - tu sa najnowsze obiekty, minor garbage collection czyści tę pamięć i przesuwa obiekty to OG
 		Old -  tu są obiekty które przeżyły kilka mniejszych GC. 
