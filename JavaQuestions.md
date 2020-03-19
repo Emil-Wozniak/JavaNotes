@@ -1,29 +1,39 @@
-1.	Co to jest String Pool
+## Java Basics
+
+1. Co to jest *String Pool*
+
 	String Pool jest to miejsce w Heapie gdzie przechowywane są stworzone Stringi.
-	Jeżeli String tworzony jest przez `new` to nie jest wrzucany do Poola
+	Jeżeli String tworzony jest przez 'new' to nie jest wrzucany do Poola
+	
+	``` java 
 		String s1 = "Cat";
-		String s2 = "Cat";
-		String s3 = new String("Cat");
-		s1 == s2; //true bo wskazują na to samo miejsce w String Pool
-		s1 == s3; //false bo wskazuja na inne miejsca w pamięci
-	Istnieje metoda `intern()`, która przerzuci String do String Pool.
+    	String s2 = "Cat";
+    	String s3 = new String("Cat");
+    	s1 == s2; //true bo wskazują na to samo miejsce w String Pool
+    	s1 == s3; //false bo wskazuja na inne miejsca w pamięci
+	```
+	
+>	Istnieje metoda `intern()`, która przerzuci String do String Pool.
 
-2.	Róznica między String, StringBuffer a StringBuilder
-	- 	String:	immutable, używa StringBuffera do konkatynacji
-	-	StringBuffer: 	przez to że sam String jest immutable
-						to Buffer służy do konstrukcji, konkatynacuji stringów, substringowania itd
-	-	StringBuilder:	nie-threadsafe wersja StringBuffera - szybsza ale tylko
-						przy aplikacjach jednowątkowych (kompilator domyślnie używa go przy "+")
-	StringBuilder i StringBuffer wewnętrznie przechowuja tablicę charów.
+2.	Róznica między *String*, *StringBuffer* a *StringBuilder*
+>  String:	immutable, używa StringBuffera do konkatynacji
+>
+> StringBuffer: 	przez to że sam String jest immutable to Buffer służy do konstrukcji,
+> konkatynacuji stringów, substringowania itd
+>
+> StringBuilder:	nie-threadsafe wersja StringBuffera - szybsza ale tylko przy 
+>aplikacjach jednowątkowych (kompilator domyślnie używa go przy "+")
+>
+> StringBuilder i StringBuffer wewnętrznie przechowuja tablicę charów.
 
-3.	Co to jest i jak działa GC
+3. Co to jest i jak działa GC
 	Garbage Collector jest to Daemon thread działający cały czas w tle JVM,
 	który na celu ma dekstrukcję niepotrzebnych obiektów i zwalnianie miejsca w Heapie. 
 	GC usuwa elementy które są "unreachable". Możemy sprawić że obiekt jest unreachable poprzez:
-		-	znullowanie referencji do niego
-		-	nadpisaniem refefencji do niego
-		-	jeżeli obiekt tworzony jest wewnątrz metody
-		-	Island of Isolation (kiedy dwa obiekty wskazują jedynie na siebie, bez referencji zewnętrznych)
+	* znullowanie referencji do niego
+	* nadpisaniem refefencji do niego
+	* jeżeli obiekt tworzony jest wewnątrz metody
+	* Island of Isolation (kiedy dwa obiekty wskazują jedynie na siebie, bez referencji zewnętrznych)
 	Przed usunięciem obiektu GC wywołuje na nim metodę `finalize()`.
 	GC jest wywoływany wtedy kiedy JVM zdecyduje że trzeba zwolnić pamięć na Heapie
 	Metody `System.gc()` oraz `Runtime.gc()` wysyłają zapytanie do GC, ale nie dają 100% pewności,
