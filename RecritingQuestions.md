@@ -1,15 +1,25 @@
-1.	Czy można przekazywać Optional w argumentach metody?
+1.	Czy można przekazywać **Optional** w argumentach metody?
 
-Nie powinno się. Używanie tak Optionali zaciemnia zapis metody,
-sprawia że działanie metody zależy od wartości optionala,
-optional w porównaniu do nullowalnych argumentów jest bardziej kosztowny,
-Optional może reprezentować aż trzy różne stany: null, non-null ale isPresent = false,
-oraz non-null opakowujący właściwą wartość.
+Nie powinno się. Używanie tak Optionali zaciemnia zapis metody, sprawia że działanie metody zależy od wartości optionala,
+optional w porównaniu do nullowalnych argumentów jest bardziej kosztowny, **Optional** może reprezentować aż 
+trzy różne stany: *null*, *non-null* ale isPresent = false, oraz *non-null* opakowujący właściwą wartość.
 
 2.	Skoro nie to jak można obsłużyć zmienną która może być nullem?
 
-Najbardziej eleganckim rozwiązaniem jest stworzenie overloadowanej metody
-obsługującej wariant logiki z argumentem null.
+Najbardziej eleganckim rozwiązaniem jest stworzenie overloadowanej metody, obsługującej wariant logiki z argumentem null.
+```java
+class Foo {
+/* ... other methods */
+void isMyVarNUll(var myVar){
+    if (myVar != null); // good
+    }
+/* for list */
+void isNullInList (List<Integer> list) {
+    list.filter(Objects::nonNull);
+    }
+}
+
+```
 
 3.	Jaka lista jeżeli chcę dodawać dane zawsze na początku?
 
