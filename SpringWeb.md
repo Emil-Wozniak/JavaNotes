@@ -1,23 +1,26 @@
-==	SpringMVC depndency trzeba dodać do pom.xml
+1. SpringMVC depndency trzeba dodać do pom.xml
+*	Dodać maven containter plugin:
 
-==	Dodać maven containter plugin:
-						<plugin>
-								<groupId>org.codehaus.cargo</groupId>
-								<artifactId>cargo-maven2-plugin</artifactId>
-								<version>1.7.3</version>
-								<configuration>
-										<container>
-												<containerId>tomcat9x</containerId>
-												<type>embedded</type>
-										</container>
-								</configuration>
-						</plugin>
+```xml
+<plugin>
+    <groupId>org.codehaus.cargo</groupId>
+	<artifactId>cargo-maven2-plugin</artifactId>
+	<version>1.7.3</version>
+	<configuration>
+	    <container>
+	        <containerId>tomcat9x</containerId>
+	        <type>embedded</type>
+	    </container>
+	</configuration>
+</plugin>
+```
+						
 
-	* PAMIĘTAĆ O <configuration>
+> PAMIĘTAĆ O `<configuration>`
 
-== 	Potem w maven pod plugins wybrać cargo -> cargo:run
+2. Potem w maven pod plugins wybrać cargo -> cargo:run
 
-== 	Adres containera to http://localhost:8080/nazwaWar/
+3. Adres containera to `http://localhost:8080/nazwaWar/`
 
 ==	Tworzymy klasę konfiguracyjną - KONTEKST
 	*	W nowej paczce "config" tworzymy klasę WebConfig.java
