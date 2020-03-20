@@ -12,7 +12,7 @@ Najbardziej eleganckim rozwiązaniem jest stworzenie overloadowanej metody, obs�
 class Foo {
 
 // never accept null value from API
-@NonNull private final Bar bar; 
+@NonNull private final Bar bar; // This never should be Optional
 @NonNull private final Baz baz;
 
 // use method to remove null value
@@ -33,11 +33,11 @@ List<String> findSomething() {
 }
 ```
 
-3.	Jaka lista jeżeli chcę dodawać dane zawsze na początku?
+3. Jaka lista jeżeli chcę dodawać dane zawsze na początku?
 
-Klasa LinkedList posiada w sobie metody `addFirst()` oraz `addLast()` 
+Klasa `LinkedList` posiada w sobie metody `addFirst()` oraz `addLast()` 
 
-4.	Co to jest LinkedList?
+4.	Co to jest `LinkedList`?
 
 Podwójnie łączona lista danych - każdy jej node przechowuje informacje o swojej zawartości, jak i odnośniki do node przed i za nim.
 
@@ -52,18 +52,16 @@ Podwójnie łączona lista danych - każdy jej node przechowuje informacje o swo
 
 6.	Trzy interfejsy funkcyjne i opisać je
 
-*  	Function: przyjmuje jeden argument i zwraca jeden argument
-* 	Customer: przyjmuje jeden argument i nie zwraca nic
-* 	Predicate: przyjmuje jeden argument i wywołuje na nim test logiczny
+*  	`Function`: przyjmuje jeden argument i zwraca jeden argument
+* 	`Customer`: przyjmuje jeden argument i nie zwraca nic
+* 	`Predicate`: przyjmuje jeden argument i wywołuje na nim test logiczny
 
 7.	Map vs flatMap w Streamach
 
-* 	Map służy do mapowania wartości w streamie na inne wartości przy użyciu
-		interfejsu funkcyjnego Function
-* 	flatMap używamy w momencie kiedy musimy "spłaszczyć" rezultat działania,
-		tzn: jeżeli mamy np. nested stream, kolekcję lub optional 
-		Optional.of(Optional.of(foo)) lub List<List<String>> 
-		to używając flatMap możemy to spłaszczyć do Optional.of(foo) i List<String>
+* 	Map służy do mapowania wartości w streamie na inne wartości przy użyciu interfejsu funkcyjnego *Function*
+* 	flatMap używamy w momencie kiedy musimy "spłaszczyć" rezultat działania, tzn: jeżeli mamy np. nested stream, 
+kolekcję lub optional `Optional.of(Optional.of(foo))` lub `List<List<String>>` to używając flatMap możemy to spłaszczyć 
+do `Optional.of(foo)` i `List<String>`
 
 8.	Jak sprawić żeby obiekt był Immutable?
 
@@ -73,36 +71,67 @@ Podwójnie łączona lista danych - każdy jej node przechowuje informacje o swo
 * 	Nie tworzyć setterów do pól
 * 	Inicjalizacja pól z argumentów konstruktora powinna odbywać się przez deep copy tych arugmentów na pola
 
-9.	Jak przekazać do obiektu immutable przez konstruktor np. mapę?
+9. Jak przekazać do obiektu immutable przez konstruktor np. mapę?
 
 Aby wypełnić immutable pole taką mapą należy jej zawartość skopiować do tego pola (deep copy)
 
-10.	Jak działa HashMapa?
+10.	Jak działa `HashMap`?
 
-* 	HashMapa przy inicjalizacji tworzy serię pustych bucketów (domyślnie 16),
-z których każdy może mieć jeden lub więcej nodów połączonych jak LinkedList.
+* `HashMap` przy inicjalizacji tworzy serię pustych bucketów (domyślnie 16), 
+z których każdy może mieć jeden lub więcej nodów połączonych jak `LinkedList`.
 
-* 	Przy dodawaniu elementu HashMap oblicza hashCode klucza i potem używając
+* Przy dodawaniu elementu `HashMap` oblicza `hashCode` klucza i potem używając
 `index = hash & (n-1)`  gdzie `n` to ilość bucketów (klucz `null` wyląduje w bucket 0)
 ustala index bucketa, do którego wrzuci dany obiekt.
 
-    * 	Każdy node będzie zawierał: 
+    Każdy node będzie zawierał: 
     *  key
     *  hashcode
     *  value
-    *  next //referencja do następnego node
+    *  next /* referencja do następnego node */
 
-11.	HashMap
-a) Czy można dodać do HashMapy dwa klucze o tym samym hashu?
-b) Czy możemy zmienić hashcode już istniejącego w mapie obiektu?
+11.	`HashMap` zadanie
+
+a) Czy można dodać do `HashMap` dwa klucze o tym samym hashu?
+
+b) Czy możemy zmienić `hashcode` już istniejącego w mapie obiektu?
+
 c) Co się wtedy stanie?
-ad a) 	Można dodać, trafią wtedy do tego samego bucketa i połączą się w LinkedList.
+
+ad a) Można dodać, trafią wtedy do tego samego bucketa i połączą się w `LinkedList`.
+
 ab b,c)	Możemy, ale nie powinno się tego robić, bo psuje to mapę i obiekt o zmienionym
-hashcode nie będzie już dostępny. Najlepiej jeżeli obiekty używane jako klucze
-będą immutable.
+hashcode nie będzie już dostępny. Najlepiej jeżeli obiekty używane jako klucze będą immutable.
 
 12.	Jak definiujemy beany w Springu? Jaki jest ich domyślny scope?
-13.	Dlaczego powstał SpringBoot?
+
+**Beany** to obiekty stanowiące kręgosłup aplikacji i będący zarządzany przez Kontener IoC Springa
+
+**Bean** jest inicjalizowany, gromadzony i zarządzany przez Spring IoC Container
+
+**Bean** domyślny zakres Beanów to *singleton* 
+
+Bean można zadeklarować na 2 sposoby:
+* w konfiguracji XML
+```xml
+<beans>
+    <bean name="transferService" class="com.acme.TransferServiceImpl"/>
+</beans>
+```
+* za pomocą **Wstrzykiwania zależności** poprzez adnotację `@Bean` , `@Component`, `@Configuration` i `@Service`
+```java
+@Configuration
+public class AppConfig {
+    @Bean
+    public TransferService transferService() {
+        return new TransferServiceImpl();
+    }
+}
+```
+
+13.	Dlaczego powstał **Spring Boot**?
+
+
 14.	Różnica między Post a Put, czy Putem możemy umiesczać nowe dane na serwerze?
 15.	Annotacje @Controller, @Repository, @Service - co oznaczają pod maską?
 16.	Obsługa wyjątków w Springu
