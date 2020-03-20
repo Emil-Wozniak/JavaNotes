@@ -10,24 +10,24 @@ Najbardziej eleganckim rozwiÄ…zaniem jest stworzenie overloadowanej metody, obsÅ
 ```java
 @AllArgConstructor
 class Foo {
+
 // never accept null value from API
 @NonNull private final Bar bar; 
 @NonNull private final Baz baz;
-/* ... other methods */
+
 // use method to remove null value
 void isMyVarNUll(var myVar) {if (myVar != null) doSomething();}
+
 // filter null value for list 
 void isNullInList (List<Integer> list) {list.filter(Objects::nonNull);}
+
 // wrap return value in Optional 
 Optional<String> makingYouCheck(Foo foo) {/* stuff */}
-void isThingScrewBecauseOfNull(Foo foo ){    
-    makingYouCheck(foo).orElseThrow(ScrewYouException::new);
-    }
+void isThingScrewBecauseOfNull(Foo foo ){makingYouCheck(foo).orElseThrow(ScrewYouException::new);}
+
 // return empty List instead of null 
 List<String> findSomething() {
-    if (someCondition) {
-        return Collections.emptyList();
-        }
+    if (someCondition) {return Collections.emptyList();}
     // stuff
     }
 }
