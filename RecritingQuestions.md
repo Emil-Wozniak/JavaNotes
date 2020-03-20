@@ -10,8 +10,8 @@ Najbardziej eleganckim rozwiÄ…zaniem jest stworzenie overloadowanej metody, obsÅ
 ```java
 class Foo {
 /* ... other methods */
-void isMyVarNUll(var myVar){
-    if (myVar != null); // good
+void isMyVarNUll(var myVar) {
+    if (myVar != null)  doSomething(); // good
     }
 /* for list */
 void isNullInList (List<Integer> list) {
