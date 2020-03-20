@@ -8,17 +8,29 @@ trzy różne stany: *null*, *non-null* ale isPresent = false, oraz *non-null* op
 
 Najbardziej eleganckim rozwiązaniem jest stworzenie overloadowanej metody, obsługującej wariant logiki z argumentem null.
 ```java
+@AllArgConstructor
 class Foo {
+// never accept null value from API
+@NonNull private final Bar bar; 
+@NonNull private final Baz baz;
 /* ... other methods */
-void isMyVarNUll(var myVar) {
-    if (myVar != null)  doSomething(); // good
+// use method to remove null value
+void isMyVarNUll(var myVar) {if (myVar != null) doSomething();}
+// filter null value for list 
+void isNullInList (List<Integer> list) {list.filter(Objects::nonNull);}
+// wrap return value in Optional 
+Optional<String> makingYouCheck(Foo foo) {/* stuff */}
+void isThingScrewBecauseOfNull(Foo foo ){    
+    makingYouCheck(foo).orElseThrow(ScrewYouException::new);
     }
-/* for list */
-void isNullInList (List<Integer> list) {
-    list.filter(Objects::nonNull);
+// return empty List instead of null 
+List<String> findSomething() {
+    if (someCondition) {
+        return Collections.emptyList();
+        }
+    // stuff
     }
 }
-
 ```
 
 3.	Jaka lista jeżeli chcę dodawać dane zawsze na początku?
