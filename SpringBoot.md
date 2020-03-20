@@ -78,10 +78,10 @@ oraz
     <scope>runtime</scope>
 </dependency>
 ```
-```
-<scope>runtime</scope> zapewnia że te narzędzie będą dostępne podczas runtime.
+
+`<scope>runtime</scope>` zapewnia że te narzędzie będą dostępne podczas runtime.
 nie będą dostępne w releasie.
-```
+
 * Jak mamy DevTools to wtedy dajemy Build Project (ctrl+f9) żeby przebudować projekto
 Jeżeli zrobimy zmiany w klasach to zrestaruje to aplikację, jak w templatkach
 to tylko odświeży

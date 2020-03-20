@@ -131,9 +131,21 @@ public class AppConfig {
 
 13.	Dlaczego powstał **Spring Boot**?
 
+W celu eliminacji wymaganej przez aplikacje Springa *boilerplate configurations*  
 
 14.	Różnica między Post a Put, czy Putem możemy umiesczać nowe dane na serwerze?
-15.	Annotacje @Controller, @Repository, @Service - co oznaczają pod maską?
+
+* Post służy do tworzenia obiketów w serwerze
+* Put służy do aktualizowania danych na serwerze
+
+15.	Annotacje `@Controller`, `@Repository`, `@Service` - co oznaczają pod maską?
+
+* wszystkie adnotację są ekwiwalentem adnotacji `@Component` z dodatkową funkcjonalnością, która jest ekwiwalentem `<bean name="fooService" class="com.foo.FooService"/>`
+* są używane jako oddzielne *"warstwy"* aplikacji
+    * `Controllers` zajmują się przesułaniem, przekierowaniem, wywyływaniem metod service, ...etc.
+    * `Service` przechowują logikę biznesową, obliczeniową ...etc.
+    * `Repository` DAOs (Data Access Objects), mają bezpośredni dostęp do bazy danych.
+
 16.	Obsługa wyjątków w Springu
 17.	Optimistic vs Pesimistic locking w Hibernate
 18.	Kiedy Hibernate rzuca LazyInitializationException
