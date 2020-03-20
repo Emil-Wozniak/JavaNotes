@@ -37,7 +37,7 @@ Jest rozszerzeniem **Frameworku Spring** które eliminuje boilerplate configurat
 * Metryki, kontrola Helth i konfiguracja zewnętrzna
 * Automatyczna konfiguracja dla funkcji *Spring* - w miarę możliwości
 
-7. Czym jest [REST](assets/additional/REST.md)
+7. Czym jest [REST](dev/bin/JavaNotes/assets/additional/REST.md)
 
 * To aktonim od **RE**presentational **S**tate **T**ransfer
 * REST to nie to samo co HTTP

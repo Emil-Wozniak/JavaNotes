@@ -4,5 +4,5 @@ Wzorce opisane w tym repozytorium oparte są na stronie www.refactoring.guru i k
 
 #### Spis treści
 
-1. [Wzorzec Bridge](Bridge.md)
-2. [Wzorzec Composite](Composite.md)
+1. [Wzorzec Bridge](assets/patterns/Bridge.md)
+2. [Wzorzec Composite](assets/patterns/Composite.md)
