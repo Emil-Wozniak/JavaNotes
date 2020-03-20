@@ -2,8 +2,7 @@
 
 1. Testy jednostkowe
 
--	Operują na pustych danych, sprawdzają tylko
-	poprawność wyołania metod???
+-	Operują na pustych danych, sprawdzają tylko poprawność wywołania metod???
 
 -	adnotacja `@WebMvcTest` nad klasą testu
 ```java
