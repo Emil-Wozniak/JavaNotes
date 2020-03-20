@@ -1,11 +1,9 @@
 1. ZALEŻNOŚCI
 
-* Narzędzia do testowania spring boota:
-		`spring-boot-starter-test`
+* Narzędzia do testowania spring boota: `spring-boot-starter-test`
 	
-
 2. PISANIE TESTÓW
-* Aby używać annotacji Mockito trzeba:
+* Aby używać adnotacji Mockito trzeba:
 ```java
 class TestClassWithMockito {
 
@@ -15,7 +13,7 @@ class TestClassWithMockito {
     //Wrzucić w setup @Before lub @BeforeEach:
     @BeforeEach
     void before(){
-		MockitoAnnotations.initMocks(StockServiceTest.class);}
+	MockitoAnnotations.initMocks(StockServiceTest.class);}
     } 	
 ```
 3. MOCKOWANIE
