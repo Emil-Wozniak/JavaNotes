@@ -147,24 +147,119 @@ W celu eliminacji wymaganej przez aplikacje Springa *boilerplate configurations*
     * `Repository` DAOs (Data Access Objects), mają bezpośredni dostęp do bazy danych.
 
 16.	Obsługa wyjątków w Springu
-17.	Optimistic vs Pesimistic locking w Hibernate
+
+17.	Optimistic vs Pessimistic locking w **Hibernate**
+
+* **Optimistic locking** jest używany, gdy nie spodziewasz się wielu kolizji. 
+Wykonanie normalnej operacji kosztuje mniej, ale jeśli zdarzy się kolizja, 
+zapłacisz wyższą cenę za jej rozwiązanie, gdy transakcja zostanie przerwana.
+
+* **Pessimistic locking** jest używany, gdy przewiduje się kolizję. 
+Transakcje, które naruszałyby synchronizację, są po prostu blokowane.
+
 18.	Kiedy Hibernate rzuca LazyInitializationException
+
+* Wskazuje dostęp do nieotwartych danych poza kontekstem sesji.
+Na przykład, gdy dostęp do niezainicjowanego serwera proxy lub kolekcji następuje po zamknięciu sesji.
+ 
 19.	Kiedy używać indeksowania baz danych
 20.	Wady indeksowania
+
 21.	Jakie kody komunkatów HTTP znasz
+
+Kody:
+* 100+ informacyjne
+* 200+ powodzenia
+* 300+ przekierowania 
+* 400+ błędy klienta
+* 500+ błędy serwera
+
+[Kody HTTP](https://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP)
+
 22. Czym różnią się kody 400 od kodów 500?
+
+* 400+ błędy klienta
+* 500+ błędy serwera
+
 23. Co oznacza S w skrócie SOLID
+
+Single responsibility principle (Zasada jednej odpowiedzialności)
+Klasa powinna mieć tylko jedną odpowiedzialność (nigdy nie powinien istnieć więcej niż jeden powód do modyfikacji klasy).
+
 24.	Jak zbadać czy klasa narusza S
+
+Sprawdzić czy klasę można zmodyfikować na więcej niż jeden sposób
+
 25.	Czym się różni Spy od Mock
+
+* **Mock** Metody w tym próbnym obiekcie zwracają domyślne wartości zwracanego typu.
+* **Spy** Tworzysz jeden prawdziwy obiekt, a następnie go szpiegujesz.
+Teraz możesz mokować z niektórych metod i nie zdecydować się na to dla niektórych.
+
 26.	Jeżeli metoda nic nie zwraca to jak ją obsłużyć w testach?
+
+* za pomocą weryfikacji zmockowanego obiektu
+
+np: 
+```java
+@Test
+class MockTest {
+
+// verifying   
+public void whenAddCalledVerified() {
+    MyList myList = mock(MyList.class);
+    myList(0, "");
+    verify(myList, times(1)).add(0, "");
+    }
+
+@Test(expected = Exception.class)
+public void givenNull_AddThrows() {
+    MyList myList = mock(MyList.class);
+    doThrow().when(myList).add(isA(Integer.class), isNull());
+  
+    myList.add(0, null);
+    }
+}
+```
+
 27.	Jak sprawdzić czy metoda która nic nie zwraca została wywołana w teście?
+
+* użyć metody `verify(mockObj)` z wywołaniem metody sprawdzanej po niej:
+
+```java
+class MockVoidTest{
+    @Test
+    void checkVoidMethod() {
+    //following two verifications work exactly the same - times(1) is used by default
+    verify(mockedList).add("once");
+    verify(mockedList, times(1)).add("once");    
+    }
+}
+```
+
 28.	Dlaczego JIT Compiler JVM nazywa się HotSpot
 
-Bo cały czas analizuje kod programu szukając `hot spotów` czyli fragmentów kodu
+* JIT znaczy "just In Time"
+* HotSpot jest koncepcją JVM zgodnie z którą JVM kompiluje faktycznie używany kod. 
+Oznacza to że "gorące" fragmenty kodu są używane na okrągło. 
+
+* Bo cały czas analizuje kod programu szukając `hot spotów` czyli fragmentów kodu
 wykonywanych często lub powtarzających się i te elementy `just-in-time` kompiluje
 do kodu maszynowego
 
 29.	Aspect Oriented Programming w Springu
+
+* AOP to paradygmat zgodnie z którym celem jest zwiększenie modułowości poprzez umożliwienie rozdzielenia problemów przekrojowych.
+* AOP dodaje dodatkowe zachowanie nie zmieniając istniejącego kodu
+
+* AOP można dodać do projektu Spring za pomocą odpowiedniej dependencji
+
+```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+``` 
 
 30.	Czy w Javie występuje polimortizm pól 
 
