@@ -264,3 +264,12 @@ do kodu maszynowego
 30.	Czy w Javie występuje polimortizm pól 
 
 Nie, pola są chowane, metody overridowane
+
+31. Jakie są różnice między MySQL i PosgreSQL
+
+- MySQL jest czysto relacyjną bazą danych, a PSQL jest obiektowo-relacyjną bazą danych
+- PSQL implementuje  Multiversion Concurrency Control (MVCC), wspiera równoległe zapytania i może używać kilku rdzeni CPU
+- PSQL jest znany z chronienia integracji danych na poziomie tranzakcji. Dzięki czemu są mniej podatne na uszkodzenie danych.
+- MySQL wspiera mniej typów danych niż PSQL
+- MySQL nie jest w pełni open-source, PSQL jest.
+- Heroku preferuje PSQL
